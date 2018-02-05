@@ -8,7 +8,7 @@ import (
 func main() {
 
 	server := &http.Server{
-		Addr:"106.14.222.26:443",
+		Addr:"106.14.222.26:80",
 	}
 
 	http.HandleFunc("/",home)
