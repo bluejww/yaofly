@@ -6,14 +6,10 @@ import (
 )
 
 func main() {
-
 	server := &http.Server{
 		Addr:"106.14.222.26:80",
 	}
-
 	http.HandleFunc("/",home)
-
-
 	server.ListenAndServe()
 
 }
