@@ -19,7 +19,7 @@ func main() {
 func home(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("in home func 哈哈哈哈")
 	var template *template2.Template
-	template = template2.Must(template2.ParseFiles("./templates/home.html"))
+	template = template2.Must(template2.ParseFiles("/templates/home.html"))
 	template.ExecuteTemplate(writer,"layout",nil)
 }
 
