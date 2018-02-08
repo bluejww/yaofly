@@ -8,7 +8,7 @@ import (
 
 func main() {
 	server := &http.Server{
-		Addr:"106.14.222.26:8080",
+		Addr:"106.14.222.26:80",
 	}
 	http.HandleFunc("/",home)
 	server.ListenAndServe()
@@ -19,7 +19,7 @@ func main() {
 func home(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("in home func 哈哈哈哈")
 	var template *template2.Template
-	template = template2.Must(template2.ParseFiles("usr/gopath/src/yaofly/templates/home.html"))
+	template = template2.Must(template2.ParseFiles("./templates/home.html"))
 	template.ExecuteTemplate(writer,"layout",nil)
 }
 
