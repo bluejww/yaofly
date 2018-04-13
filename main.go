@@ -4,17 +4,21 @@ import (
 	"net/http"
 	template2 "html/template"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"context"
 )
 
 func main() {
-	server := &http.Server{
-		Addr:"106.14.222.26:80",
-	}
-	http.HandleFunc("/",home)
-	server.ListenAndServe()
-
+	gin.SetMode(gin.DebugMode)
+	router := gin.Default()
+	router.GET("/haha",haha)
+	http.ListenAndServe(":8080",router)
 }
 
+//haha接口
+func haha(ctx *gin.Context)  {
+	fmt.Println("你好啊，i love you baby")
+}
 
 func home(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("in home func 哈哈哈哈")
