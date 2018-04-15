@@ -5,7 +5,6 @@ import (
 	template2 "html/template"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"context"
 )
 
 func main() {
