@@ -24,7 +24,7 @@ func haha(ctx *gin.Context)  {
 	fmt.Println("password from app %s",password)
 	response := gin.H{
 		"message" : "我是返回的数据，啊哈哈",
-
+		"resultCode" : 200,
 	}
 	ctx.JSON(200,response)
 }
