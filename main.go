@@ -1,30 +1,33 @@
 package main
 
 import (
-	"net/http"
-	template2 "html/template"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	gin.SetMode(gin.DebugMode)
+	//gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
-	router.GET("/haha",haha)
-	http.ListenAndServe(":8080",router)
+	router.Use(gin.Logger())
+	router.GET("/api/userLoginIn",haha)
+	router.Run(":80")
+
+
 }
 
 //haha接口
 func haha(ctx *gin.Context)  {
 	fmt.Println("你好啊，i love you baby")
+	userName := ctx.Param("userName")
+	password := ctx.Param("password")
+	fmt.Println("userName from app %s",userName)
+	fmt.Println("password from app %s",password)
+	response := gin.H{
+		"message" : "我是返回的数据，啊哈哈",
+
+	}
+	ctx.JSON(200,response)
 }
 
-func home(writer http.ResponseWriter, request *http.Request) {
-	fmt.Println("in home func 哈哈哈哈")
-	request.ParseForm()
-	var template *template2.Template
-	template = template2.Must(template2.ParseFiles("./templates/home.html"))
-	template.ExecuteTemplate(writer,"layout",nil)
-}
 
 
